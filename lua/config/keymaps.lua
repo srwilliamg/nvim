@@ -44,7 +44,15 @@ keymap("n", "<leader>yp", ":let @+=expand('%:.')<cr>", { desc = "Copy relative p
 -- Copy absolute path
 keymap("n", "<leader>yP", ":let @+=@%<cr>", { desc = "Copy absolute path" })
 --  file name
-keymap("n", "<leader>yf", ":let @+=expand('%:t')<cr>", { desc = "Copy relative path" })
+keymap("n", "<leader>yf", ":let @+=expand('%:t')<cr>", { desc = "Copy file name" })
+-- Copy relative path + line
+keymap("n", "<leader>yl", function()
+  vim.fn.setreg("+", vim.fn.expand("%:.") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy relative path + line" })
+-- Copy absolute path + line
+keymap("n", "<leader>yL", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy absolute path + line" })
 
 keymap("n", "<leader>wa", ":wa<cr>", { desc = "Save All" })
 
