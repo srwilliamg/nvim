@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 -- plugin/nvim_treesiter.lua
 require("lazyload").on_vim_enter(function()
   vim.api.nvim_create_autocmd("PackChanged", {

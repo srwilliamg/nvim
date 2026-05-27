@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 require("lazyload").on_vim_enter(function()
   vim.pack.add({
     { src = Utils.github("sindrets/diffview.nvim"), name = "diffview" }, --depend on: "nvim-tree/nvim-web-devicons"

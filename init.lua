@@ -41,7 +41,9 @@ vim.opt.colorcolumn = "80"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.lsp.inlay_hint.enable(true)
+if not vim.g.vscode then
+  vim.lsp.inlay_hint.enable(true)
+end
 
 -- vim.diagnostic.config({
 --   signs = {

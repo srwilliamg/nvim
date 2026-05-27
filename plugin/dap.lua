@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 local initMasonDAP = function()
   require("mason-nvim-dap").setup({
     ensure_installed = {

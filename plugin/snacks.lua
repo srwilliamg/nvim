@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 local desc = Utils.plugin_keymap_desc("Snacks")
 
 local logo = [[

@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 require("lazyload").on_vim_enter(function()
   vim.pack.add({
     { src = Utils.github("MagicDuck/grug-far.nvim"), name = "grug-far" },

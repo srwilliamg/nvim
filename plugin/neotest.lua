@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 vim.pack.add({
   Utils.github("nvim-neotest/neotest"),
   Utils.github("nvim-neotest/nvim-nio"),

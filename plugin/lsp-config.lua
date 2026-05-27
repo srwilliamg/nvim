@@ -1,3 +1,4 @@
+if vim.g.vscode then return end
 local desc = Utils.plugin_keymap_desc("LSP")
 
 vim.pack.add({ Utils.github("mason-org/mason-lspconfig.nvim"), Utils.github("neovim/nvim-lspconfig"), Utils.github("mason-org/mason.nvim") }, { load = true })
