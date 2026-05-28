@@ -126,7 +126,7 @@ require("lazyload").on_vim_enter(function()
   map("n", "<leader>sS", pick("lsp_workspace_symbols"), { desc = desc("LSP Workspace Symbols") })
 
   -- Top Pickers & Explorer
-  map("n", "<leader><space>", pick("smart"), { desc = desc("Smart Find Files") })
+  map("n", "<leader><space>", pick("files"), { desc = desc("Find Files") })
   map("n", "<leader>,", pick("buffers"), { desc = desc("Buffers") })
   map("n", "<leader>bl", pick("buffers"), { desc = desc("Buffers") })
   map("n", "<leader>/", pick("grep"), { desc = desc("Grep") })
@@ -136,7 +136,7 @@ require("lazyload").on_vim_enter(function()
   -- find
   map("n", "<leader>fb", pick("buffers"), { desc = desc("Buffers") })
   map("n", "<leader>fc", pick("files", { cwd = vim.fn.stdpath("config") }), { desc = desc("Find Config File") })
-  map("n", "<leader>ff", pick("files"), { desc = desc("Find Files") })
+  map("n", "<leader>ff", pick("smart"), { desc = desc("Smart Find Files") })
   map("n", "<leader>fg", pick("git_files"), { desc = desc("Find Git Files") })
   map("n", "<leader>fp", pick("projects"), { desc = desc("Projects") })
   map("n", "<leader>fr", pick("recent"), { desc = desc("Recent") })
