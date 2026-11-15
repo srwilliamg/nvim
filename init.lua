@@ -1,3 +1,17 @@
+-- Cache compiled Lua bytecode — biggest single startup win
+vim.loader.enable()
+
+-- Disable unused built-in runtime plugins
+vim.g.loaded_gzip         = 1
+vim.g.loaded_matchit      = 1
+vim.g.loaded_tarPlugin    = 1
+vim.g.loaded_zipPlugin    = 1
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+-- netrw disabled in favour of nvim-tree
+vim.g.loaded_netrw        = 1
+vim.g.loaded_netrwPlugin  = 1
+
 vim.opt.title = true
 vim.opt.titlestring = '%( %M%)%( (%{expand("%:~:h")})%)%a'
 
@@ -7,10 +21,6 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.neovide_scale_factor = 1
-
--- nvim tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- vim.opts
 vim.opt.clipboard = ""

@@ -1,10 +1,13 @@
 if vim.g.vscode then return end
-require("lazyload").on_vim_enter(function()
-  vim.pack.add({
-    Utils.github("lewis6991/gitsigns.nvim"),
-  })
+-- gitsigns only attaches to file buffers; defer until one is first opened
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+  once = true,
+  callback = function()
+    vim.pack.add({
+      Utils.github("lewis6991/gitsigns.nvim"),
+    })
 
-  require("gitsigns").setup({
+    require("gitsigns").setup({
     signs = {
       add = { text = "┃" },
       change = { text = "┃" },
@@ -53,4 +56,5 @@ require("lazyload").on_vim_enter(function()
       col = 1,
     },
   })
-end)
+  end,
+})

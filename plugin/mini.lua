@@ -1,15 +1,12 @@
 if vim.g.vscode then return end
+-- mini.pairs and mini.surround are needed before any editing session starts
 require("lazyload").on_vim_enter(function()
   vim.pack.add({
     Utils.github("nvim-mini/mini.pairs"),
     Utils.github("nvim-mini/mini.surround"),
-    Utils.github("folke/todo-comments.nvim"), -- depends on :"nvim-lua/plenary.nvim"
-    Utils.github("chentoast/marks.nvim"),
   })
 
-  require("marks").setup()
   require("mini.pairs").setup()
-  require("todo-comments").setup()
   require("mini.surround").setup({
     mappings = {
       add = "sa", -- Add surrounding in Normal and Visual modes
@@ -22,3 +19,16 @@ require("lazyload").on_vim_enter(function()
     },
   })
 end)
+
+-- todo-comments and marks are display-only; defer until a buffer is actually read
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  once = true,
+  callback = function()
+    vim.pack.add({
+      Utils.github("folke/todo-comments.nvim"), -- depends on "nvim-lua/plenary.nvim"
+      Utils.github("chentoast/marks.nvim"),
+    })
+    require("marks").setup()
+    require("todo-comments").setup()
+  end,
+})

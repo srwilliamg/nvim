@@ -221,16 +221,16 @@ local initDAP = function()
   end
 end
 
-vim.pack.add({
-  Utils.github("rcarriga/nvim-dap-ui"),
-  Utils.github("jay-babu/mason-nvim-dap.nvim"),
-  Utils.github("mfussenegger/nvim-dap"),
-  Utils.github("theHamsta/nvim-dap-virtual-text"),
-  Utils.github("nvim-neotest/nvim-nio"),
-  Utils.github("mason-org/mason-lspconfig.nvim"),
-  Utils.github("leoluz/nvim-dap-go"),
-})
 require("lazyload").on_vim_enter(function()
+  vim.pack.add({
+    Utils.github("rcarriga/nvim-dap-ui"),
+    Utils.github("jay-babu/mason-nvim-dap.nvim"),
+    Utils.github("mfussenegger/nvim-dap"),
+    Utils.github("theHamsta/nvim-dap-virtual-text"),
+    Utils.github("nvim-neotest/nvim-nio"),
+    Utils.github("mason-org/mason-lspconfig.nvim"),
+    Utils.github("leoluz/nvim-dap-go"),
+  })
   initDAP()
   initDapUI()
   initMasonDAP()
