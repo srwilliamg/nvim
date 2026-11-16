@@ -3,7 +3,7 @@ if vim.g.vscode then return end
 require("lazyload").on_vim_enter(function()
   vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  })
+  }, { load = true })
 
   require("nvim-treesitter.configs").setup({
     ensure_installed = {
