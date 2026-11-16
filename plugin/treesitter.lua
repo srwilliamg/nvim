@@ -5,26 +5,34 @@ require("lazyload").on_vim_enter(function()
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   }, { load = true })
 
-  require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-      "bash",
-      "dockerfile",
-      "go",
-      "gomod",
-      "gosum",
-      "json",
-      "jsonc",
-      "lua",
-      "markdown",
-      "markdown_inline",
-      "python",
-      "toml",
-      "vim",
-      "yaml",
-    },
-    highlight = { enable = true },
-    indent = { enable = true },
-  })
+  vim.schedule(function()
+    local ok, configs = pcall(require, "nvim-treesitter.configs")
+    if not ok then
+      vim.notify("nvim-treesitter not found — restart Neovim to complete install", vim.log.levels.WARN)
+      return
+    end
 
-  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    configs.setup({
+      ensure_installed = {
+        "bash",
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "json",
+        "jsonc",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "toml",
+        "vim",
+        "yaml",
+      },
+      highlight = { enable = true },
+      indent = { enable = true },
+    })
+
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end)
 end)
