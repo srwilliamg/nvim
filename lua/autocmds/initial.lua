@@ -1,8 +1,3 @@
-vim.api.nvim_create_user_command("InstallAllLocal", function()
-  vim.cmd("MasonInstall bash-language-server delve docker-language-server eslint-lsp gofumpt goimports golangci-lint gopls gotests iferr json-lsp lua-language-server markdownlint marksman prettier prettierd sqlfluff sql-language-server stylua typescript-language-server yaml-language-server")
-  vim.cmd("TSInstallAll")
-end, {})
-
 vim.api.nvim_create_autocmd("TermLeave", {
   desc = "Reload buffers when leaving terminal",
   pattern = "*",

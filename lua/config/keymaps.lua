@@ -34,11 +34,6 @@ keymap("v", "K", ":m .-2<CR>==", opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
--- format
-keymap("n", "<leader>f", function()
-  vim.lsp.buf.format({ async = true, lsp_format = "fallback" })
-end, opts)
-
 -- Copy relative path
 keymap("n", "<leader>yp", ":let @+=expand('%:.')<cr>", { desc = "Copy relative path" })
 -- Copy absolute path
